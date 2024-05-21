@@ -1,5 +1,7 @@
 import DataStructures
 
-ds = DataStructures.DataStructures(1, 2, 3)
+ds = DataStructures.Stack(1, 2, 3)
 
-print(ds.addall())
+print(ds.add(4))
+
+print(ds.remove())
