@@ -8,6 +8,9 @@ class DataStructures:
     # Test method to get sum of all integers in list
     def addall(self):
         return sum(self.list)
+    
+    def __str__(self) -> str:
+        return f"{self.list}"
 
 
 # Class for Stack DS
@@ -23,6 +26,5 @@ class Stack(DataStructures):
 
     # Remove element from Stack
     def remove(self):
-        self.list.pop()
-        return self.list
+        return self.list.pop()
     
