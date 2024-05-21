@@ -7,7 +7,10 @@ class DataStructures:
 
     # Test method to get sum of all integers in list
     def addall(self):
-        return sum(self.list)
+        try:
+            return sum(self.list)
+        except:
+            return "All elements must be an integer to get the sum"
     
     def __str__(self) -> str:
         return f"{self.list}"
