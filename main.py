@@ -1,10 +1,10 @@
 import DataStructures
 
-ds = DataStructures.Stack(1, 2, 3)
+ds = DataStructures.Queue(1, 2, 4)
 
 print(ds)
 
-print(ds.add(4))
+print(ds.add(3))
 
 print(ds.remove())
 

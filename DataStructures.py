@@ -24,7 +24,22 @@ class Stack(DataStructures):
         self.list.append(e)
         return self.list
 
-    # Remove element from Stack
+    # Remove last added element from Stack
     def remove(self):
         return self.list.pop()
     
+
+# Class for Queue DS
+class Queue(DataStructures):
+
+    def __init__(self, *args):
+        super().__init__(*args)
+
+    # Add element to Queue
+    def add(self, e):
+        self.list.append(e)
+        return self.list
+    
+    # Remove first element from Queue
+    def remove(self):
+        return self.list.pop(0)
