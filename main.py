@@ -50,3 +50,11 @@ def valid_p(s):
 
 # print(valid_p("()"))
 # print(valid_p("()())"))
+
+# ll = DataStructures.LinkedList(2, 3, 1)
+# ll.insertEnd(4)
+# ll.insertBeginning(1)
+# print(ll)
+# print(ll.getSize())
+# ll.insertIndex(4, 1)
+# print(ll)
