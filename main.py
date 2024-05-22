@@ -63,3 +63,9 @@ def valid_p(s):
 # ll.updateNode(7, 1)
 
 # print(ll)
+
+dll = DataStructures.DoublyLinkedList(1, 2, 3, 4)
+
+dll.insertStart(6)
+
+print(dll)

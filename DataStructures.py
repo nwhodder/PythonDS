@@ -162,3 +162,54 @@ class LinkedList(DataStructures):
         def __init__(self, data):
             self.data = data
             self.next = None
+
+
+# Class For Doubly Linked List
+class DoublyLinkedList(DataStructures):
+    def __init__(self, *args):
+        self.head = None
+        self.tail = None
+        for arg in args:
+            self.insertEnd(arg)
+
+    # Function to add to the end of DLL
+    def insertEnd(self, data):
+        new_node = self.DLLNode(data)
+        if self.tail is None:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            self.tail.next = new_node
+            new_node.prev = self.tail
+            self.tail = new_node
+            
+    # Function to add to the beginning of DLL
+    def insertStart(self, data):
+        new_node = self.DLLNode(data)
+        if self.head is None:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            self.head.prev = new_node
+            new_node.next = self.head
+            self.head = new_node
+    
+    # String function for DLL
+    def __str__(self) -> str:
+        node = self.head
+        list = []
+        while(node):
+            list.append(node.data)
+            if node.next is None:
+                break
+            else:
+                node = node.next
+        return f"{list}"
+
+
+    # Node class for DLL which now includes a previous pointer
+    class DLLNode:
+        def __init__(self, data):
+            self.data = data
+            self.next = None
+            self.prev = None
