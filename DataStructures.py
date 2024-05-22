@@ -41,6 +41,8 @@ class Queue(DataStructures):
     def remove(self):
         return self.list.pop(0)
 
+
+# Class for Linked List
 class LinkedList(DataStructures):
 
     def __init__(self, *args):
@@ -94,6 +96,51 @@ class LinkedList(DataStructures):
             if current_node != None:            # When at correct position and a node exists after, 
                 node.next = current_node.next   # Sets next of new node to the next of the node at position
                 current_node.next = node        # Sets next of the node at position to our new node's data
+            else:
+                print("Index is out of bounds")
+
+    # Delete first node of LL
+    def delFirst(self):
+        if self.head is None: # Cancel if there are no nodes
+            return
+        self.head = self.head.next  # Set new head as next node
+
+    # Delete last node of LL
+    def delLast(self):
+        if self.head is None:
+            return
+        node = self.head
+        while node.next.next:   # while the current node's pointer has a pointer, move up one position
+            node = node.next
+        node.next = None        # Move to last node with a pointer and remove that pointer
+    
+    # Delete node at given index of LL
+    def delIndex(self, index):
+        node = self.head
+        position = 0
+        if index == position:   # If index = 0 delete head
+            self.delFirst()
+        else:
+            while node != None and (position + 1) != index: # Parse through our nodes until at position before index
+                position += 1
+                node = node.next
+            if node != None:            # When at correct position before index, change pointer to be the node
+                node.next = node.next.next      # after the next 
+            else:
+                print("Index is out of bounds")
+
+    # Update node at given index of LL
+    def updateNode(self, data, index):
+        current_node = self.head
+        position = 0
+        if index == position:
+            current_node.data = data
+        else:
+            while current_node != None and position != index:   # [1, 2, 3, 4]
+                position += 1
+                current_node = current_node.next
+            if current_node != None:
+                current_node.data = data
             else:
                 print("Index is out of bounds")
 
