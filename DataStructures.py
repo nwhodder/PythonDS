@@ -12,6 +12,7 @@ class DataStructures:
         except:
             return "All elements must be an integer to get the sum"
     
+    # String method so when object is called it returns the list
     def __str__(self) -> str:
         return f"{self.list}"
 
