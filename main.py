@@ -73,3 +73,10 @@ dll = DataStructures.DoublyLinkedList(1, 2, 3, 4)
 # dll.delIndex(2)
 
 # print(dll)
+
+bst = DataStructures.BST(4, 7, 9, 3, 1, 2, 6)
+
+bst.insert(10)
+bst.insert(5)
+
+print(bst)

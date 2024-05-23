@@ -282,3 +282,76 @@ class DoublyLinkedList(DataStructures):
             self.data = data
             self.next = None
             self.prev = None
+    
+
+# Class for Binary Search Tree (BST)
+class BST(DataStructures):
+    
+    def __init__(self, *args):
+        self.root = None
+        for arg in args:
+            self.insert(arg)
+
+    # Function to insert into tree
+    def insert(self, data):
+        new_node = self.BSTNode(data)
+        if self.root is None:
+            self.root = new_node
+        else:
+            current_node = self.root
+            while current_node != None:
+                if current_node.data < new_node.data:
+                    if current_node.right is None:
+                        current_node.right = new_node
+                        return
+                    else:
+                        current_node = current_node.right
+                elif current_node.data > new_node.data:
+                    if current_node.left is None:
+                        current_node.left = new_node
+                        return
+                    else:
+                        current_node = current_node.left
+
+    
+    # String Method for BST see repr function in BSTNode Class
+    def __str__(self) -> str:
+        return repr(self)
+
+    def __repr__(self):
+        return repr(self.root)
+            
+    # Class for Nodes of the BST
+    class BSTNode():
+        def __init__(self, data):
+            self.data = data
+            self.left = None
+            self.right = None
+
+        # Return String Representation of BST (taken from https://stackoverflow.com/a/62407035)
+        def __repr__(self):
+            lines = []
+            if self.right:
+                found = False
+                for line in repr(self.right).split("\n"):
+                    if line[0] != " ":
+                        found = True
+                        line = " ┌─" + line
+                    elif found:
+                        line = " | " + line
+                    else:
+                        line = "   " + line
+                    lines.append(line)
+            lines.append(str(self.data))
+            if self.left:
+                found = False
+                for line in repr(self.left).split("\n"):
+                    if line[0] != " ":
+                        found = True
+                        line = " └─" + line
+                    elif found:
+                        line = "   " + line
+                    else:
+                        line = " | " + line
+                    lines.append(line)
+            return "\n".join(lines)
