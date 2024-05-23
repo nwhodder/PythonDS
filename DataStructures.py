@@ -333,11 +333,85 @@ class BST(DataStructures):
             else:
                 print(f"{value} in line {count} of tree.")
 
+    # Function to get min value in BST
+    def getMin(self, node = "root"):
+        if node == "root":
+            node = self.root
+        min = node.data
+        while node.left != None:
+            min = node.left.data
+            node = node.left
+        return min
 
-    
+    # Function to get max value in BST
+    def getMax(self, node = "root"):
+        if node == "root":
+            node = self.root
+        max = node.data
+        while node.right != None:
+            max = node.right.data
+            node = node.right
+        return node.data
+
+    # Function to delete a node in BST
+    # def delNode(self, value, node = "root"):
+    #     if node == "root":
+    #         node = self.root
+    #     if node is None:
+    #         return node
+    #     if value < node.data:
+    #         node.left = self.delNode(value, node.left)
+    #     elif value > node.data:
+    #         node.right = self.delNode(value, node.right)
+    #     else:
+    #         if node.left is None:
+    #             return node.right
+    #         elif node.right is None:
+    #             return node.left
+    #         node.data = self.getMin(node.right)
+    #         node.right = self.delNode(node.data, node.right)
+    #         return node
+
+    # Function to traverse in-order BST
+    def inOrder(self, node = "root"):
+        if node == "root":
+            node = self.root
+        if node:                    # Recursively print left-right most nodes on tree
+            self.inOrder(node.left)
+            print(node.data, end=" ")
+            self.inOrder(node.right)
+
+    # Function to get BST height
+    def getHeight(self, node = "root"):
+        if node == "root":
+            node = self.root
+        if node is None:
+            return 0
+        leftHeight = self.getHeight(node.left)      # Recursively get height of left/right nodes then return the larger
+        rightHeight = self.getHeight(node.right)    # of them, adding 1 to their increment each time, 
+        return max(leftHeight, rightHeight) + 1
+
+    # FUnction to see if BST is balanced
+    def getBalance(self, node = "root"):
+        if node == "root":
+            node = self.root
+        if node is None:
+            return True
+        left_height = self.getHeight(node.left)     # Get height from either side of our root node
+        right_height = self.getHeight(node.right)
+        if((left_height - right_height) > 1 or (left_height - right_height) < -1):
+            return False
+        left_balance = self.getBalance(node.left)   # Check if each subtree is balanced, return True if so
+        right_balance = self.getBalance(node.right)
+        if left_balance == True and right_balance == True:
+            return True
+
     # String Method for BST see repr function in BSTNode Class
     def __str__(self) -> str:
-        return repr(self)
+        if self.root is None:
+           return "Tree is Empty"
+        else:
+            return repr(self)
 
     def __repr__(self):
         return repr(self.root)

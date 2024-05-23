@@ -74,10 +74,15 @@ dll = DataStructures.DoublyLinkedList(1, 2, 3, 4)
 
 # print(dll)
 
-bst = DataStructures.BST(4, 7, 9, 3, 1, 2, 6)
+bst = DataStructures.BST(4, 2, 6, 3, 1, 5, 8, 10)
 
-bst.insert(10)
-bst.insert(5)
-
+# bst.insert(10)
+# bst.insert(5)
+# bst.search(0)
+# print(bst.getMax())
+# bst.inOrder()
+# print(bst.getHeight())
+# print(bst.getBalance())
 print(bst)
-bst.search(0)
+bst.delNode(8)
+print(bst)
