@@ -211,7 +211,58 @@ class DoublyLinkedList(DataStructures):
             self.head.prev = new_node
             new_node.next = self.head
             self.head = new_node
-    
+
+    # Function to insert at index
+    def insertIndex(self, data, index):
+        new_node = self.DLLNode(data)
+        current_node = self.head
+        position = 0
+        if index == position:
+            self.insertStart(data)
+        else:
+            while current_node != None and (position + 1) != index:#    [1,2,3,4,5]
+                position += 1
+                current_node = current_node.next
+            if current_node != None:
+                new_node.next = current_node.next
+                current_node.next = new_node
+                new_node.prev = current_node.data
+            else:
+                print("Index out of bounds")
+            
+    # Function to delete head of DLL
+    def delHead(self):
+        if self.head is None:
+            return
+        else:
+            self.head = self.head.next
+            self.head.prev = None
+
+    # Function to delete tail of DLL
+    def delTail(self):
+        if self.tail is None:
+            return
+        else:
+            self.tail = self.tail.prev
+            self.tail.next = None
+
+    # Function to delete given index of DLL
+    def delIndex(self, index):
+        current_node = self.head
+        position = 0
+        if index == position:
+            self.delHead
+        else:
+            while current_node != None and (position + 1) != index:
+                position += 1
+                current_node = current_node.next
+            if current_node != None:
+                current_node.next = current_node.next.next
+                current_node.next.prev = current_node
+            else:
+                print("Index is out of bounds")
+
+
     # String function for DLL
     def __str__(self) -> str:
         node = self.head

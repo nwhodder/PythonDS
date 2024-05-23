@@ -65,8 +65,11 @@ ll = DataStructures.LinkedList(2, 3, 1)
 
 # print(ll)
 
-# dll = DataStructures.DoublyLinkedList(1, 2, 3, 4)
+dll = DataStructures.DoublyLinkedList(1, 2, 3, 4)
 
-# dll.insertStart(6)
+# dll.insertIndex(7, 3)
+# dll.delHead()
+# dll.delTail()
+# dll.delIndex(2)
 
 # print(dll)
