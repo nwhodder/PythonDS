@@ -313,6 +313,27 @@ class BST(DataStructures):
                     else:
                         current_node = current_node.left
 
+    # Function to search BST
+    def search(self, value):
+        node = self.root
+        count = 1
+        if node is None:
+            print("Tree is Empty")
+        elif value == node.data:
+            print(f"{value} in line {count} of tree.")
+        else:
+            while node != None and node.data != value:
+                count +=1
+                if node.data < value:
+                    node = node.right
+                elif node.data > value:
+                    node = node.left
+            if node is None:
+                print(f"{value} Not in Tree")
+            else:
+                print(f"{value} in line {count} of tree.")
+
+
     
     # String Method for BST see repr function in BSTNode Class
     def __str__(self) -> str:

@@ -80,3 +80,4 @@ bst.insert(10)
 bst.insert(5)
 
 print(bst)
+bst.search(0)
