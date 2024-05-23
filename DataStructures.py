@@ -136,13 +136,31 @@ class LinkedList(DataStructures):
         if index == position:
             current_node.data = data
         else:
-            while current_node != None and position != index:   # [1, 2, 3, 4]
+            while current_node != None and position != index:
                 position += 1
                 current_node = current_node.next
             if current_node != None:
                 current_node.data = data
             else:
                 print("Index is out of bounds")
+    
+    # Function to search index
+    def getIndex(self, index):
+        current_node = self.head
+        if current_node is None:
+            print("No nodes exist.")
+        else:
+            position = 0
+            if index == position:
+                print(current_node.data)
+            else:
+                while current_node != None and position != index:
+                    position += 1
+                    current_node = current_node.next
+                if current_node != None:
+                    print(current_node.data)
+                else:
+                    print("Index is out of bounds")
 
 
     # Str Method for LL

@@ -52,7 +52,8 @@ def valid_p(s):
 # print(valid_p("()())"))
 
 
-# ll = DataStructures.LinkedList(2, 3, 1)
+ll = DataStructures.LinkedList(2, 3, 1)
+# ll.getIndex(2)
 # ll.insertEnd(4)
 # ll.insertBeginning(1)
 # print(ll.getSize())
@@ -64,8 +65,8 @@ def valid_p(s):
 
 # print(ll)
 
-dll = DataStructures.DoublyLinkedList(1, 2, 3, 4)
+# dll = DataStructures.DoublyLinkedList(1, 2, 3, 4)
 
-dll.insertStart(6)
+# dll.insertStart(6)
 
-print(dll)
+# print(dll)
