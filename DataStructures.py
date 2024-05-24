@@ -351,26 +351,28 @@ class BST(DataStructures):
         while node.right != None:
             max = node.right.data
             node = node.right
-        return node.data
+        return max
 
     # Function to delete a node in BST
-    # def delNode(self, value, node = "root"):
-    #     if node == "root":
-    #         node = self.root
-    #     if node is None:
-    #         return node
-    #     if value < node.data:
-    #         node.left = self.delNode(value, node.left)
-    #     elif value > node.data:
-    #         node.right = self.delNode(value, node.right)
-    #     else:
-    #         if node.left is None:
-    #             return node.right
-    #         elif node.right is None:
-    #             return node.left
-    #         node.data = self.getMin(node.right)
-    #         node.right = self.delNode(node.data, node.right)
-    #         return node
+    def delNode(self, value, node = "root"):
+        if node == "root":
+            node = self.root
+        if node is None:
+            return node
+        if value < node.data:
+            node.left = self.delNode(value, node.left)
+            return node
+        elif value > node.data:
+            node.right = self.delNode(value, node.right)
+            return node
+        else:
+            if node.left is None:
+                return node.right
+            elif node.right is None:
+                return node.left
+            node.data = self.getMin(node.right)
+            node.right = self.delNode(node.data, node.right)
+            return node
 
     # Function to traverse in-order BST
     def inOrder(self, node = "root"):
